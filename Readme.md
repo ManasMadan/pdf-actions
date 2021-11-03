@@ -110,6 +110,26 @@ const splitPDFHandler = async (files) => {
 };
 ```
 
+## Installation
+
+### NPM Module
+
+To install the latest stable version:
+
+- With npm
+
+```bash
+npm install --save pdf-actions
+```
+
+- With yarn
+
+```bash
+yarn add pdf-actions
+```
+
+This assumes you're using [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/lang/en/) as your package manager.
+
 ## Documentation
 
 The repo for the project site (and generated documentation files) is
