@@ -1,7 +1,7 @@
 import { PDFDocument } from "pdf-lib";
 
 const mergePDF = async (filesDocArray) => {
-  if (files.length < 2) {
+  if (filesDocArray.length < 2) {
     return filesDocArray[0] || null;
   }
   const mergedPdf = await PDFDocument.create();

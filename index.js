@@ -1,8 +1,4 @@
-import {
-  EmptyPDFDocument,
-  PDFDocumentFromFile,
-  PDFDocumentFromPDFArray,
-} from "./pdf-methods/createFileDoc";
+import createPDF from "./pdf-methods/createFileDoc";
 import downloadPDFArray from "./pdf-methods/downloadPDFArray";
 import mergePDF from "./pdf-methods/mergePDF";
 import pdfArray from "./pdf-methods/pdfArray";
@@ -15,9 +11,7 @@ import JSZip from "jszip";
 
 export {
   // createFileDoc
-  EmptyPDFDocument,
-  PDFDocumentFromFile,
-  PDFDocumentFromPDFArray,
+  createPDF,
   // DownloadPDFArray
   downloadPDFArray,
   // MergePDF
