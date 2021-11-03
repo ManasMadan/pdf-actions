@@ -1,5 +1,5 @@
-import { PDFDocument } from "pdf-lib";
-import pdfArray from "./pdfArray";
+const { PDFDocument } = require("pdf-lib");
+const pdfArray = require("./pdfArray");
 
 const EmptyPDFDocument = async () => await PDFDocument.create();
 
@@ -11,7 +11,7 @@ const PDFDocumentFromFile = async (file) =>
 const PDFDocumentFromPDFArray = async (fileArray) =>
   await PDFDocument.load(fileArray, { ignoreEncryption: true });
 
-export default {
+module.exports = {
   EmptyPDFDocument,
   PDFDocumentFromFile,
   PDFDocumentFromPDFArray,

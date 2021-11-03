@@ -1,4 +1,4 @@
-import { degrees, PDFDocument } from "pdf-lib";
+const { degrees, PDFDocument } = require("pdf-lib");
 
 const createArray = (start, stop) => {
   const res = [];
@@ -24,4 +24,4 @@ const splitPDF = async (pdfDoc, range, { degree = 0 }) => {
   return splittedPDF;
 };
 
-export default splitPDF;
+module.exports = splitPDF;

@@ -1,4 +1,4 @@
-import { PDFDocument } from "pdf-lib";
+const { PDFDocument } = require("pdf-lib");
 
 const mergePDF = async (filesDocArray) => {
   if (filesDocArray.length < 2) {
@@ -14,4 +14,4 @@ const mergePDF = async (filesDocArray) => {
   return mergedPdf;
 };
 
-export default mergePDF;
+module.exports = mergePDF;

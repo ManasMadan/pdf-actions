@@ -1,15 +1,15 @@
-import createPDF from "./pdf-methods/createFileDoc";
-import downloadPDFArray from "./pdf-methods/downloadPDFArray";
-import mergePDF from "./pdf-methods/mergePDF";
-import pdfArray from "./pdf-methods/pdfArray";
-import rotatePDF from "./pdf-methods/rotatePDF";
-import splitPDF from "./pdf-methods/splitPDF";
-import zipToBlob from "./pdf-methods/zipToBlob";
+const createPDF = require("./pdf-methods/createFileDoc");
+const downloadPDFArray = require("./pdf-methods/downloadPDFArray");
+const mergePDF = require("./pdf-methods/mergePDF");
+const pdfArray = require("./pdf-methods/pdfArray");
+const rotatePDF = require("./pdf-methods/rotatePDF");
+const splitPDF = require("./pdf-methods/splitPDF");
+const zipToBlob = require("./pdf-methods/zipToBlob");
 
-import saveAs from "file-saver";
-import JSZip from "jszip";
+const saveAs = require("file-saver");
+const JSZip = require("jszip");
 
-export {
+module.exports = {
   // createFileDoc
   createPDF,
   // DownloadPDFArray

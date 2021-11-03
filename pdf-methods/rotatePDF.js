@@ -1,6 +1,6 @@
-import { degrees } from "pdf-lib";
+const { degrees } = require("pdf-lib");
 
-export const rotatePDF = async (pdfDoc, degree) => {
+const rotatePDF = async (pdfDoc, degree) => {
   const pages = pdfDoc.getPages();
   pages.forEach((page) => {
     page.setRotation(degrees(degree));
@@ -8,4 +8,4 @@ export const rotatePDF = async (pdfDoc, degree) => {
   return pdfDoc;
 };
 
-export default rotatePDF;
+module.exports = rotatePDF;

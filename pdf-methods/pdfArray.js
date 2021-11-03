@@ -8,4 +8,4 @@ const pdfArray = async (file) => {
   return fileArray;
 };
 
-export default pdfArray;
+module.exports = pdfArray;
