@@ -1,0 +1,23 @@
+{
+  "name": "pdf-actions",
+  "version": "1.0.0",
+  "description": "m",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "m"
+  },
+  "keywords": [
+    "m"
+  ],
+  "author": "Manas Madan",
+  "license": "MIT",
+  "dependencies": {
+    "file-saver": "^2.0.5",
+    "jszip": "^3.7.1",
+    "pdf-lib": "^1.17.0"
+  }
+}
