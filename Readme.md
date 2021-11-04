@@ -44,7 +44,7 @@
 <!-- prettier-ignore -->
 ```js
 // Importing The Required Modules
-import { createPDF, downloadPDFArray, mergePDF } from "pdf-actions";
+import { createPDF,pdfArrayToBlob, mergePDF } from "pdf-actions";
 
 // Async Function To Merge PDF Files Uploaded Using The Input Tag in HTML
 const mergePDFHandler = async (files) => {
@@ -55,7 +55,7 @@ const mergePDFHandler = async (files) => {
   // Converting The Merged Document to Unit8Array
   const mergedPdfFile = await mergedPDFDocument.save();
   // Saving The File To Disk
-  downloadPDFArray(mergedPdfFile, "merged.pdf");
+  const pdfBlob = pdfArrayToBlob(mergedPdfFile);
 };
 ```
 
@@ -64,7 +64,7 @@ const mergePDFHandler = async (files) => {
 <!-- prettier-ignore -->
 ```js
 // Importing The Required Modules
-import { createPDF, rotatePDF, zipToBlob,saveAs } from "pdf-actions";
+import { createPDF, rotatePDF, zipToBlob } from "pdf-actions";
 
 // Async Function To Rotate PDF Files Uploaded Using The Input Tag in HTML
 const rotatePDFHandler = async (files) => {
@@ -79,7 +79,7 @@ const rotatePDFHandler = async (files) => {
       await rotatedPDF.save() // Converting To Unit8Array
     );
   }
-  saveAs(await zipToBlob(zip), "rotatedPDFFiles.zip");
+  const zipBlob = await zipToBlob(zip);
 };
 ```
 
@@ -88,7 +88,8 @@ const rotatePDFHandler = async (files) => {
 <!-- prettier-ignore -->
 ```js
 // Importing The Required Modules
-import { createPDF, splitPDF, JSZip } from "pdf-actions";
+import { createPDF, splitPDF } from "pdf-actions";
+import JSZip from "jszip";
 
 // Async Function To Split PDF Files Uploaded Using The Input Tag in HTML
 const splitPDFHandler = async (files) => {
@@ -108,6 +109,30 @@ const splitPDFHandler = async (files) => {
     saveAs(content, "splitPDFFiles.zip");
   });
 };
+```
+
+### File To Array
+
+```js
+import { pdfArray } from "pdf-actions";
+
+const fileArray = pdfArray(file);
+```
+
+### Pdf Array To Blob
+
+```js
+import { pdfArrayToBlob } from "pdf-actions";
+
+const fileBlob = pdfArrayToBlob(fileArray);
+```
+
+### Zip To Blob
+
+```js
+import { zipToBlob } from "pdf-actions";
+
+const zipBlob = zipToBlob(zipObject : JSZip Instance);
 ```
 
 ## Installation

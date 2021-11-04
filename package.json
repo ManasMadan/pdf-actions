@@ -1,6 +1,6 @@
 {
   "name": "pdf-actions",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A NPM Package built on top of pdf-lib that provides functonalities like merge, rotate, split,download pdf to disk and many more...",
   "main": "index.js",
   "scripts": {
@@ -20,8 +20,6 @@
   "author": "Manas Madan",
   "license": "MIT",
   "dependencies": {
-    "file-saver": "^2.0.5",
-    "jszip": "^3.7.1",
     "pdf-lib": "^1.17.0"
   },
   "homepage": "https://github.com/ManasMadan/pdf-actions",
