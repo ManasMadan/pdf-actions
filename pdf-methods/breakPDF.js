@@ -31,7 +31,7 @@ const breakPDF = async (
   maxPages,
   breakRange = [1, pdfDoc.getPageCount()],
   lastPDF = true,
-  { degree = 0 }
+  degree = 0 
 ) => {
   if (maxPages > pages) {
     return "maxPages greater than total number of pages";

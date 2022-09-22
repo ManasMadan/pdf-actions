@@ -9,7 +9,7 @@ const createArray = (start, stop) => {
   return res;
 };
 
-const splitPDF = async (pdfDoc, range, { degree = 0 }) => {
+const splitPDF = async (pdfDoc, range, degree = 0) => {
   if (range[0] === 0) {
     range = [1, range[1]];
   }
