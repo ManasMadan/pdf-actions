@@ -6,21 +6,16 @@ const createBreakPDFArray = (pdfPages, maxPages, lastPDF) => {
   const pagesArray = [];
 
   for (let i = 0; i < ~~(pdfPages / maxPages); i++) {
-    const breakPdfPagesIndices = [];
-    for (let j = 0; j < maxPages; j++) {
-      breakPdfPagesIndices.push(lastInsertedPage);
-      lastInsertedPage++;
-    }
+    const breakPdfPagesIndices = [
+      lastInsertedPage,
+      lastInsertedPage + maxPages - 1,
+    ];
+    lastInsertedPage += maxPages;
     pagesArray.push(breakPdfPagesIndices);
   }
 
   if (lastPDF && pdfPages % maxPages) {
-    const breakPdfPagesIndices = [];
-    for (let j = 0; j < pdfPages % maxPages; j++) {
-      breakPdfPagesIndices.push(lastInsertedPage);
-      lastInsertedPage++;
-    }
-    pagesArray.push(breakPdfPagesIndices);
+    pagesArray.push([lastInsertedPage, pdfPages]);
   }
 
   return pagesArray;
@@ -29,25 +24,27 @@ const createBreakPDFArray = (pdfPages, maxPages, lastPDF) => {
 const breakPDF = async (
   pdfDoc,
   maxPages,
-  breakRange = [1, pdfDoc.getPageCount()],
-  lastPDF = true,
-  degree = 0 
+  lastPDF,
+  degree = 0,
+  breakRange = [1, pdfDoc.getPageCount()]
 ) => {
-  if (maxPages > pages) {
+  const newPdfDoc = await splitPDF(pdfDoc, breakRange, degree);
+  const pdfPages = newPdfDoc.getPageCount();
+
+  if (maxPages > pdfPages) {
     return "maxPages greater than total number of pages";
   }
 
   const pdfDocArrays = [];
-  const splittedPdfDoc = await splitPDF(pdfDoc, breakRange, { degree: degree });
 
-  const breakPdfPagesIndices = createBreakPDFArray(
-    breakRange[1] - breakRange[0] + 1,
-    maxPages,
-    lastPDF
-  );
+  const breakPdfPagesIndices = createBreakPDFArray(pdfPages, maxPages, lastPDF);
 
   for (let i = 0; i < breakPdfPagesIndices.length; i++) {
-    const breakPdfDoc = await splitPDF(splittedPdfDoc, breakPdfPagesIndices[i]);
+    const breakPdfDoc = await splitPDF(
+      newPdfDoc,
+      breakPdfPagesIndices[i],
+      degree
+    );
     pdfDocArrays.push(breakPdfDoc);
   }
 
