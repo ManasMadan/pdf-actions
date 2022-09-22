@@ -1,4 +1,5 @@
-const { degrees, PDFDocument } = require("pdf-lib");
+const { degrees } = require("pdf-lib");
+const { EmptyPDFDocument } = require("./createFileDoc");
 
 const createArray = (start, stop) => {
   const res = [];
@@ -18,7 +19,10 @@ const splitPDF = async (pdfDoc, range, { degree = 0 }) => {
   if (range[1] < range[0]) {
     range = [range[1], range[0]];
   }
-  const splittedPDF = await PDFDocument.create();
+  if (range[1] > pdfDoc.getPageCount()) {
+    range = [range[0], pdfDoc.getPageCount()];
+  }
+  const splittedPDF = await EmptyPDFDocument();
   const pages = await splittedPDF.copyPages(pdfDoc, createArray(...range));
   pages.forEach((page) => {
     page.setRotation(degrees(degree));

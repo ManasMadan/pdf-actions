@@ -3,6 +3,7 @@ const mergePDF = require("./pdf-methods/mergePDF");
 const pdfArray = require("./pdf-methods/pdfArray");
 const rotatePDF = require("./pdf-methods/rotatePDF");
 const splitPDF = require("./pdf-methods/splitPDF");
+const breakPDF = require("./pdf-methods/breakPDF");
 const zipToBlob = require("./pdf-methods/zipToBlob");
 const pdfArrayToBlob = require("./pdf-methods/pdfArrayToBlob");
 
@@ -17,6 +18,8 @@ module.exports = {
   rotatePDF,
   // SplitPDF
   splitPDF,
+  // Break PDF
+  breakPDF,
   // Zip To Blob
   zipToBlob,
   // pdfArrayToBlob,

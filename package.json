@@ -1,6 +1,6 @@
 {
   "name": "pdf-actions",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A NPM Package built on top of pdf-lib that provides functonalities like merge, rotate, split,download pdf to disk and many more...",
   "main": "index.js",
   "scripts": {
