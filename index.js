@@ -6,6 +6,7 @@ const splitPDF = require("./pdf-methods/splitPDF");
 const breakPDF = require("./pdf-methods/breakPDF");
 const zipToBlob = require("./pdf-methods/zipToBlob");
 const pdfArrayToBlob = require("./pdf-methods/pdfArrayToBlob");
+const flattenPDFForm = require("./pdf-methods/flattenPDFForm");
 
 module.exports = {
   // createFileDoc
@@ -24,4 +25,6 @@ module.exports = {
   zipToBlob,
   // pdfArrayToBlob,
   pdfArrayToBlob,
+  //flattenPDFForm
+  flattenPDFForm,
 };
