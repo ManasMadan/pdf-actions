@@ -9,6 +9,9 @@ const pdfArrayToBlob = require("./pdf-methods/pdfArrayToBlob");
 const flattenPDFForm = require("./pdf-methods/flattenPDFForm");
 const resizePDF = require("./pdf-methods/resizePDF");
 const addMarginPDF = require("./pdf-methods/addMarginPDF.js");
+const editMetaData = require("./pdf-methods/editMetaData");
+const removeMetaData = require("./pdf-methods/removeMetaData");
+
 module.exports = {
   // createFileDoc
   createPDF,
@@ -32,4 +35,8 @@ module.exports = {
   resizePDF,
   // addMarginPDF
   addMarginPDF,
+  // editMetaData
+  editMetaData,
+  // removeMetaData
+  removeMetaData,
 };
