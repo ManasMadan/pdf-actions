@@ -8,7 +8,7 @@ const zipToBlob = require("./pdf-methods/zipToBlob");
 const pdfArrayToBlob = require("./pdf-methods/pdfArrayToBlob");
 const flattenPDFForm = require("./pdf-methods/flattenPDFForm");
 const resizePDF = require("./pdf-methods/resizePDF");
-
+const addMarginPDF = require("./pdf-methods/addMarginPDF.js");
 module.exports = {
   // createFileDoc
   createPDF,
@@ -30,4 +30,6 @@ module.exports = {
   flattenPDFForm,
   // resizePDF
   resizePDF,
+  // addMarginPDF
+  addMarginPDF,
 };
