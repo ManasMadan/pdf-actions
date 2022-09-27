@@ -11,7 +11,7 @@ const resizePDF = require("./pdf-methods/resizePDF");
 const addMarginPDF = require("./pdf-methods/addMarginPDF.js");
 const editMetaData = require("./pdf-methods/editMetaData");
 const removeMetaData = require("./pdf-methods/removeMetaData");
-
+const addPageNumbers = require("./pdf-methods/addPageNumbers");
 module.exports = {
   // createFileDoc
   createPDF,
@@ -39,4 +39,6 @@ module.exports = {
   editMetaData,
   // removeMetaData
   removeMetaData,
+  // addPageNumbers
+  addPageNumbers,
 };
