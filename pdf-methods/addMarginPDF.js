@@ -13,8 +13,40 @@ const addMarginPDF = async (pdfDoc, marginMillimeter, degree = 0) => {
   pages.forEach((page) => {
     const { x, y, width, height } = page.getMediaBox();
 
+    const size = [width, height];
+    const newSize = [
+      width + margin[0] + margin[2],
+      height + margin[1] + margin[3],
+    ];
+    const sizeRatio = Math.round((size[0] / size[1]) * 100);
+    const newSizeRatio = Math.round((newSize[0] / newSize[1]) * 100);
+
     page.setSize(width + margin[0] + margin[2], height + margin[1] + margin[3]);
     page.translateContent(x + margin[2], y + margin[3]);
+
+    if (Math.abs(sizeRatio - newSizeRatio) > 1) {
+      // Change page size
+      page.setSize(size[0], size[1]);
+      const scale_content = Math.min(
+        size[0] / newSize[0],
+        size[1] / newSize[1]
+      );
+
+      // Scale content
+      page.scaleContent(scale_content, scale_content);
+      const scaledDiffernece = {
+        width: Math.round(size[0] - scale_content * newSize[0]),
+        height: Math.round(size[1] - scale_content * newSize[1]),
+      };
+
+      page.translateContent(
+        Math.round(scaledDiffernece.width / 2),
+        Math.round(scaledDiffernece.height / 2)
+      );
+    } else {
+      page.scale(size[0] / newSize[0], size[1] / newSize[1]);
+    }
+
     page.setRotation(degrees(degree));
   });
 
