@@ -12,6 +12,7 @@ const addMarginPDF = require("./pdf-methods/addMarginPDF.js");
 const editMetaData = require("./pdf-methods/editMetaData");
 const removeMetaData = require("./pdf-methods/removeMetaData");
 const addPageNumbers = require("./pdf-methods/addPageNumbers");
+const imageToPDF = require("./pdf-methods/imageToPDF");
 module.exports = {
   // createFileDoc
   createPDF,
@@ -41,4 +42,6 @@ module.exports = {
   removeMetaData,
   // addPageNumbers
   addPageNumbers,
+  // imageToPDF
+  imageToPDF,
 };
