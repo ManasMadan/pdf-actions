@@ -14,34 +14,19 @@ const removeMetaData = require("./pdf-methods/removeMetaData");
 const addPageNumbers = require("./pdf-methods/addPageNumbers");
 const imageToPDF = require("./pdf-methods/imageToPDF");
 module.exports = {
-  // createFileDoc
   createPDF,
-  // MergePDF
   mergePDF,
-  // PDFArray
   pdfArray,
-  // RoatePDF
   rotatePDF,
-  // SplitPDF
   splitPDF,
-  // Break PDF
   breakPDF,
-  // Zip To Blob
   zipToBlob,
-  // pdfArrayToBlob,
   pdfArrayToBlob,
-  //flattenPDFForm
   flattenPDFForm,
-  // resizePDF
   resizePDF,
-  // addMarginPDF
   addMarginPDF,
-  // editMetaData
   editMetaData,
-  // removeMetaData
   removeMetaData,
-  // addPageNumbers
   addPageNumbers,
-  // imageToPDF
   imageToPDF,
 };
