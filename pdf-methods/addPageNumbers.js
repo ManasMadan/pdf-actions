@@ -6,7 +6,7 @@ const marginValuesNumber = {
   Big: 15,
 };
 
-marginIndexPagePosition = {
+const marginIndexPagePosition = {
   b: 3,
   t: 1,
 };
