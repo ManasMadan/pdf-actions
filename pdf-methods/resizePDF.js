@@ -5,14 +5,29 @@ const resizePDF = async (
   size = "A4",
   orientation = "Portrait",
   position = "Start",
-  degree = 0
+  degree = 0,
+  keepOriginalRatio = false
 ) => {
   const pages = pdfDoc.getPages();
   const newSize = PageSizes[size];
   if (orientation === "Landscape") {
     newSize.reverse();
   }
+  
   const newSizeRatio = Math.round((newSize[0] / newSize[1]) * 100);
+
+  if(keepOriginalRatio){
+    // resize height basedd on width ratio
+    const { width, height } = pages[0].getMediaBox();
+    const scale_content = newSize[0] / width;
+
+    console.log('Scale Content: ' + scale_content);
+    console.log('original Height: ' + height);
+    
+    const newHeight = Math.round(height * scale_content);
+    console.log('New Height: ' + newHeight);
+    newSize[1] = newHeight;
+  }
 
   pages.forEach((page) => {
     const { width, height } = page.getMediaBox();
@@ -40,7 +55,7 @@ const resizePDF = async (
           Math.round(scaledDiffernece.width),
           Math.round(scaledDiffernece.height)
         );
-      }
+      } 
     } else {
       page.scale(newSize[0] / width, newSize[1] / height);
     }
